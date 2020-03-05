@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '@testing-library/jest-dom';
-import Results from './Result';
+import Result from './Result';
 
 
 /**
