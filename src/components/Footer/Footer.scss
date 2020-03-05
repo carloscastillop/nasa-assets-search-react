@@ -1,0 +1,21 @@
+@import '../../Styles/variables.scss';
+
+footer {
+  background-color: rgba(255, 255, 255, 0.05);
+  height: $footerHeight;
+
+  .navbar-brand {
+    img {
+      width: $footerLogoWidth;
+      height: auto;
+    }
+  }
+
+  p {
+    color: $textColour;
+  }
+
+  .startAnimaged {
+    visibility: hidden;
+  }
+}

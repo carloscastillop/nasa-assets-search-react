@@ -1,0 +1,9 @@
+@import '../../Styles/variables.scss';
+
+.searchForm {
+  & * {
+    z-index: 10;
+  }
+
+
+}

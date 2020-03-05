@@ -1,4 +1,5 @@
 import React from 'react';
+import './Form.scss';
 
 class Form extends React.Component {
 
@@ -6,59 +7,59 @@ class Form extends React.Component {
         return (
             <React.Fragment>
                 <div className="searchForm">
-                    <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-                        <div className="col-md-5 p-lg-5 mx-auto my-5">
-                            <h2 className="display-4 font-weight-normal">Nasa</h2>
-                            <h1>Space assets search</h1>
-                            <form>
-                                <div className="form-group">
-                                    <label htmlFor="exampleInputEmail1" className="sr-only">Search bar</label>
-                                    <input type="email" className="form-control" id="exampleInputEmail1"
-                                           aria-describedby="emailHelp"/>
-                                    <small id="emailHelp" className="form-text text-muted">We'll never share
-                                        your
-                                        email
-                                        with anyone else.
-                                    </small>
+                    <div className="text-center text-white">
+                        <div className="col-md-5 p-lg-6 mx-auto">
+                            <h2 className="display-4 font-weight-normal text-uppercase animated fadeInUp delay-2s">
+                                Nasa
+                            </h2>
+                            <h1 className="h4 animated fadeIn delay-3s mb-4">
+                                Space search
+                            </h1>
+                            <form className="animated fadeIn delay-4s">
+                                <div className="input-group input-group-lg mb-3">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Explore the deep space"
+                                        aria-label="Explore the deep space"
+                                        aria-describedby="button-addon2"
+                                    />
+                                        <div className="input-group-append">
+                                            <button className="btn btn-outline-secondary" type="button"
+                                                    id="button-addon2">
+                                                <i className="fas fa-search"></i> Search
+                                            </button>
+                                        </div>
+
                                 </div>
+                                <small id="emailHelp" className="form-text text-muted  mb-3">
+                                    <i className="fas fa-rocket"></i> Earth is a small town with many neighborhoods in a very big universe.
+                                </small>
 
-                                <div className="input-group mb-3">
-                                    <div className="input-group-prepend">
-                                        <div className="custom-control custom-checkbox">
-                                            <input type="checkbox" className="custom-control-input"
-                                                   id="customCheck1"/>
-                                            <label className="custom-control-label" htmlFor="customCheck1">
-                                                Images
+                                <div className="mediaType">
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                               value="option1"/>
+                                            <label className="form-check-label" htmlFor="inlineCheckbox1">
+                                                Image
                                             </label>
-                                        </div>
-
                                     </div>
-                                    <div className="input-group-middle">
-
-                                        <div className="custom-control custom-checkbox">
-                                            <input type="checkbox" className="custom-control-input"
-                                                   id="customCheck1"/>
-                                            <label className="custom-control-label" htmlFor="customCheck1">
-                                                Audio
-                                            </label>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="input-group-prepend">
-                                        <div className="custom-control custom-checkbox">
-                                            <input type="checkbox" className="custom-control-input"
-                                                   id="customCheck1"/>
-                                            <label className="custom-control-label" htmlFor="customCheck1">
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                               value="option2"/>
+                                            <label className="form-check-label" htmlFor="inlineCheckbox2">
                                                 Video
                                             </label>
-                                        </div>
-
                                     </div>
-
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                               value="option3"/>
+                                            <label className="form-check-label" htmlFor="inlineCheckbox3">
+                                                Audio
+                                                </label>
+                                    </div>
                                 </div>
 
-                                <button type="submit" className="btn btn-primary">Search in NASA</button>
                             </form>
                         </div>
                     </div>
