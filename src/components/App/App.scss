@@ -1,10 +1,11 @@
-// BOOTSTRAP
-// Required
+// FONT Titillium Web
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+// BOOTSTRAP Required
 @import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/variables";
 @import "../../../node_modules/bootstrap/scss/mixins";
-
-// Optional
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../Styles/variables";
+// BOOTSTRAP Optional
 @import "../../../node_modules/bootstrap/scss/reboot";
 @import "../../../node_modules/bootstrap/scss/type";
 @import "../../../node_modules/bootstrap/scss/images";
@@ -17,7 +18,16 @@
 
 
 .App {
-  border: solid 1px red;
   height: 100%;
+}
+
+.bg-dark {
+  background-color: #343a40 !important;
+}
+
+a.bg-dark:hover, a.bg-dark:focus,
+button.bg-dark:hover,
+button.bg-dark:focus {
+  background-color: #1d2124 !important;
 }
 

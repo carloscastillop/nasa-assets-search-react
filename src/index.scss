@@ -2,16 +2,14 @@
 
 html {
   height: 100%;
-  border: solid 1px blue;
 
   body {
     height: 100%;
-    border: solid 1px green;
     background-color: $bodyColour;
   }
 }
-#root{
-  border: solid 1px magenta;
+
+#root {
   height: 100%;
 }
 

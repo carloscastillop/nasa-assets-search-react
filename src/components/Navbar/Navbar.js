@@ -5,7 +5,7 @@ import logo from '../../Images/nasa-logo.svg';
 
 function NavBar() {
     return (
-        <nav className="navbar pt-4 mb-5">
+        <nav className="navbar pt-4 mb-3">
             <div className="container text-center">
                 <a className="navbar-brand" href="#">
                     <img

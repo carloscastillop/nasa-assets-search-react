@@ -1,12 +1,12 @@
 @import '../../Styles/variables.scss';
 
 header {
-  padding-top: 80px;
   margin-bottom: 60px;
 
   &.fullHeight {
+    padding-top: 80px;
     height: calc( 100% - #{$footerHeight} );
-    background-color: red;
+    background-color: black;
     margin-bottom: 0;
   }
 

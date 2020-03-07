@@ -6,6 +6,7 @@ class Results extends React.Component {
         return (
             <React.Fragment>
                 <div className="results">
+                    <h3 className="h4 text-white">Results for XXX</h3>
                     <div className="row">
                         <Result/>
                         <Result/>

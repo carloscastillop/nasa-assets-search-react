@@ -1,5 +1,5 @@
 //General
-$bodyColour: #333;
+$bodyColour: #060606;
 
 //Breakpoints
 $grid-breakpoints-sm: 576px;
@@ -21,3 +21,11 @@ $textColour: #ccc;
 //Footer
 $footerHeight: 40px;
 $footerLogoWidth: 30px;
+
+$font-family-base: 'Titillium Web', sans-serif;
+
+$theme-colors: (
+        "primary": #0B3C91,
+        "danger": #FC3D21
+);
+

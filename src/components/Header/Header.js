@@ -7,6 +7,7 @@ import './Header.scss';
 class Header extends React.Component {
 
     render() {
+        const {search, handleChange} = this.props
         return (
             <React.Fragment>
                 <header className="fullHeight spaceEffect">
@@ -14,7 +15,7 @@ class Header extends React.Component {
                     <div className='twinkling'></div>
                     <div className='clouds'></div>
                     <Navbar/>
-                    <Form/>
+                    <Form search={search} handleChange={handleChange}/>
                 </header>
             </React.Fragment>
         );
