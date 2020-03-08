@@ -7,15 +7,31 @@ import './Header.scss';
 class Header extends React.Component {
 
     render() {
-        const {search, handleChange} = this.props
+        const {
+            search,
+            handleChangeSearch,
+            handleChangeMediaType,
+            mediaTypes,
+            handleSubmit,
+            formErrors,
+            isLoading,
+            showResults
+        } = this.props
         return (
             <React.Fragment>
-                <header className="fullHeight spaceEffect">
+                <header className={(isLoading || showResults) ? 'spaceEffect pb-3' : 'fullHeight spaceEffect'}>
                     <div className='stars'></div>
                     <div className='twinkling'></div>
                     <div className='clouds'></div>
                     <Navbar/>
-                    <Form search={search} handleChange={handleChange}/>
+                    <Form
+                        search={search}
+                        mediaTypes={mediaTypes}
+                        handleChangeSearch={handleChangeSearch}
+                        handleChangeMediaType={handleChangeMediaType}
+                        handleSubmit={handleSubmit}
+                        formErrors={formErrors}
+                    />
                 </header>
             </React.Fragment>
         );

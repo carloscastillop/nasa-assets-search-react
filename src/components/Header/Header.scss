@@ -1,11 +1,11 @@
 @import '../../Styles/variables.scss';
 
 header {
-  margin-bottom: 60px;
 
   &.fullHeight {
     padding-top: 80px;
-    height: calc( 100% - #{$footerHeight} );
+    //height: calc( 100% - #{$footerHeight} );
+    height: 100vh;
     background-color: black;
     margin-bottom: 0;
   }

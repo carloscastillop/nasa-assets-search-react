@@ -1,10 +1,35 @@
 import React from 'react';
 import './Form.scss';
+import Checkbox from '../Checkbox/Checkbox';
+import Quotes from '../Quotes/Quotes';
+
+const mediaTypesCheckboxes = [
+    {
+        name: 'mediaTypeImage',
+        key: 'mediaType1',
+        label: 'Image',
+        value: 'image'
+    },
+    {
+        name: 'mediaTypeVideo',
+        key: 'mediaType2',
+        label: 'Video',
+        value: 'video'
+    },
+    {
+        name: 'mediaTypeAudio',
+        key: 'mediaType3',
+        label: 'Audio',
+        value: 'audio'
+    },
+];
+
 
 class Form extends React.Component {
 
     render() {
-        const {search, handleChange} = this.props;
+        const {search, handleChangeSearch, handleChangeMediaType, mediaTypes, handleSubmit, formErrors} = this.props;
+
         return (
             <React.Fragment>
                 <div className="searchForm">
@@ -21,61 +46,43 @@ class Form extends React.Component {
                                     <input
                                         id="searchInput"
                                         type="text"
-                                        className="form-control"
+                                        className={formErrors ? 'form-control is-invalid' : 'form-control'}
                                         placeholder="Explore the deep space"
                                         aria-label="Explore the deep space"
                                         aria-describedby="searchBtn"
                                         value={search}
-                                        onChange={handleChange}
+                                        onChange={handleChangeSearch}
                                     />
                                     <div className="input-group-append">
-                                        <button className="btn btn-primary" type="button"
-                                                id="searchBtn">
-                                            <i className="fas fa-search"></i> Search
+                                        <button
+                                            className="btn btn-primary"
+                                            type="button"
+                                            id="searchBtn"
+                                            onClick={handleSubmit}
+                                        >
+                                            <i className="fas fa-search"></i> <span
+                                            className="d-none d-sm-inline-block">Search</span>
                                         </button>
                                     </div>
 
                                 </div>
 
                                 <div className="mediaType mb-3">
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            id="searchCheckboxImage"
-                                            value="image"
-                                        />
-                                        <label className="form-check-label" htmlFor="searchCheckboxImage">
-                                            Image
-                                        </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            id="searchCheckboxVideo"
-                                            value="video"
-                                        />
-                                        <label className="form-check-label" htmlFor="searchCheckboxVideo">
-                                            Video
-                                        </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            id="searchCheckboxAudio"
-                                            value="audio"
-                                        />
-                                        <label className="form-check-label" htmlFor="searchCheckboxAudio">
-                                            Audio
-                                        </label>
-                                    </div>
+                                    {
+                                        mediaTypesCheckboxes.map(item => (
+                                            <Checkbox
+                                                key={item.key}
+                                                handleChangeMediaType={handleChangeMediaType}
+                                                label={item.label}
+                                                name={item.name}
+                                                value={item.value}
+                                                id={item.key}
+                                                isChecked={mediaTypes.includes(item.value)}
+                                            />
+                                        ))
+                                    }
                                 </div>
-                                <small id="searchHelp" className="form-text text-muted mb-3">
-                                    <i className="fas fa-rocket"></i> Earth is a small town with many neighborhoods in a very big universe.
-                                </small>
-
+                                <Quotes/>
                             </form>
                         </div>
                     </div>

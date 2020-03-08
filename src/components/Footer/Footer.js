@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import './Footer.scss';
 import logo from '../../Images/nasa-logo.svg';
 
@@ -12,13 +13,13 @@ function Footer() {
                     <div className="row">
                         <div className="col-auto">
 
-                            <a className="navbar-brand" href="#">
+                            <Link className="navbar-brand" to="/">
                                 <img
                                     src={logo}
                                     alt="Nasa Logo"
                                     className="animated fadeInUp delay-1s"
                                 />
-                            </a>
+                            </Link>
 
                         </div>
                         <div className="col">
