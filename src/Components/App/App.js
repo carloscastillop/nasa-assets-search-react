@@ -175,13 +175,12 @@ class App extends React.Component {
 
                                 </section>
                             </Route>
-                            <Route exact path="/asset/:mediaType/:id"
+                            <Route exact path="/asset/:id"
                                    render={(props) => {
                                        return (
                                            <React.Fragment>
                                                <Asset
                                                    id={props.match.params.id}
-                                                   mediaType={props.match.params.mediaType}
                                                />
                                                <div className="container py-3">
                                                    <Link

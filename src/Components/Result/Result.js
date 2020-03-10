@@ -53,7 +53,7 @@ class Result extends React.Component {
                                 <Link
                                     className="btn btn-outline-info btn-sm"
                                     title={data.title}
-                                    to={`/asset/${data.media_type}/${data.nasa_id}`}
+                                    to={`/asset/${data.nasa_id}`}
                                 >
                                     View more
                                 </Link>

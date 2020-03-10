@@ -26,9 +26,10 @@ $font-family-base: 'Titillium Web', sans-serif;
 
 $nasaColour: #0B3C91;
 $nasaColourLight: #3c63a7;
+$nasaDanger: #FC3D21;
 
 $theme-colors: (
         "primary": $nasaColour,
-        "danger": #FC3D21
+        "danger": $nasaDanger
 );
 

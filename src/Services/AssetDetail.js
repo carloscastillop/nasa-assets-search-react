@@ -1,10 +1,10 @@
 import Company from '../Api/Company';
 
-const parseAsset = (data, mediaType) => {
-    console.log({data:data, mediaType:mediaType})
+const parseAsset = (data) => {
+    return data[0].href;
 }
 
-const getAssetDetail = (id, mediaType ) => {
+const getAssetDetail = (id) => {
     const apiUrl = 'https://images-api.nasa.gov/asset/' + id;
 
     return Company(apiUrl, true)
@@ -14,7 +14,7 @@ const getAssetDetail = (id, mediaType ) => {
             }
         )
         .then(response => {
-            parseAsset(response.data, mediaType);
+            return parseAsset(response.data.collection.items);
         });
 };
 

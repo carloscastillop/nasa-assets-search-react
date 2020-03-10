@@ -11,7 +11,7 @@ const getAssetAlbum = (id) => {
         )
         .then(response => {
             if(response.data.collection.items){
-                return response.data.collection.items[0].data[0];
+                return response.data.collection.items[0];
             }
         });
 };

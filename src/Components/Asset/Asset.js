@@ -4,6 +4,7 @@ import getAssetAlbum from "../../Services/AssetAlbum";
 import getAssetDetail from "../../Services/AssetDetail";
 import Navbar from "../Navbar/Navbar";
 import './Asset.scss'
+import Video from '../Video/Video';
 
 class Asset extends React.Component {
     constructor(props) {
@@ -17,33 +18,39 @@ class Asset extends React.Component {
             title: null,
             keywords: null,
             date_created: null,
-            media_type: null
+            media_type: null,
+            asset: null,
+            video_preview: null,
+            images: []
         }
     }
 
     componentDidMount = () => {
-        const {id, mediaType} = this.props;
-        this.assetDetail(id, mediaType);
-        this.setState({id, mediaType});
+        const {id} = this.props;
+        this.assetDetail(id);
+        this.setState({id});
 
     }
 
-    assetDetail = (id, mediaType) => {
+    assetDetail = (id) => {
         getAssetAlbum(id)
             .then(info => {
                 console.log({getAssetAlbum: info});
                 this.setState({
                     isLoading: false,
-                    title: info.title,
-                    description: info.description,
-                    keywords: info.keywords,
-                    date_created: info.date_created,
-                    media_type: info.media_type
+                    title: info.data[0].title,
+                    description: info.data[0].description,
+                    keywords: info.data[0].keywords,
+                    date_created: info.data[0].date_created,
+                    media_type: info.data[0].media_type,
+                    video_preview: info.links[0].href,
                 });
 
-                getAssetDetail(id, mediaType)
+                getAssetDetail(id)
                     .then(res => {
-                        console.log({getAssetDetail: res});
+                        this.setState({
+                            asset: res,
+                        });
                     });
             });
 
@@ -58,7 +65,9 @@ class Asset extends React.Component {
             description,
             keywords,
             date_created,
-            media_type
+            media_type,
+            video_preview,
+            asset
         } = this.state;
         return (
             <React.Fragment>
@@ -91,14 +100,22 @@ class Asset extends React.Component {
                             <div className="container">
                                 {
                                     (media_type === 'video') &&
-                                    <div>
-                                        VIDEO
+                                    <div className="py-4">
+                                        <Video
+                                            video_preview={video_preview}
+                                            video_src={asset}
+                                        />
                                     </div>
                                 }
                                 {
                                     (media_type === 'image') &&
-                                    <div>
-                                        IMAGE
+                                    <div className="py-4">
+                                        <img
+                                            className="img-fluid animated fadeIn"
+                                            src={asset}
+                                            title={title}
+                                            alt={title}
+                                        />
                                     </div>
                                 }
                                 {
@@ -120,7 +137,7 @@ class Asset extends React.Component {
                                             </cite>
                                         </div>
                                     </div>
-                                ):(
+                                ) : (
                                     <p className="text-white animated fadeInUp">
                                         {description}
                                     </p>
@@ -137,10 +154,10 @@ class Asset extends React.Component {
                                     {
                                         keywords.map((keyword, i) => {
                                             return <span
-                                                        key={'keyword-' + i}
-                                                        className="badge badge-primary mx-1"
-                                                        title={keyword}
-                                                    >
+                                                key={'keyword-' + i}
+                                                className="badge badge-primary mx-1"
+                                                title={keyword}
+                                            >
                                                         {keyword}
                                                     </span>
                                         })
