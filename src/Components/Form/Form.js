@@ -26,6 +26,17 @@ const mediaTypesCheckboxes = [
 
 
 class Form extends React.Component {
+    constructor(props) {
+        super(props);
+        this.searchBtn = React.createRef();
+    }
+    enterPressed = (e) => {
+        const code = e.keyCode || e.which;
+        if(code === 13) { //13 is the enter keycode
+            e.preventDefault();
+            this.searchBtn.current.click();
+        }
+    }
 
     render() {
         const {search, handleChangeSearch, handleChangeMediaType, mediaTypes, handleSubmit, formErrors} = this.props;
@@ -44,6 +55,7 @@ class Form extends React.Component {
                             <form className="animated fadeIn">
                                 <div className="input-group input-group-lg mb-2">
                                     <input
+                                        autoFocus
                                         id="searchInput"
                                         type="text"
                                         className={formErrors ? 'form-control is-invalid' : 'form-control'}
@@ -52,13 +64,15 @@ class Form extends React.Component {
                                         aria-describedby="searchBtn"
                                         value={search}
                                         onChange={handleChangeSearch}
+                                        onKeyPress={this.enterPressed}
+
                                     />
                                     <div className="input-group-append">
                                         <button
                                             className="btn btn-primary"
                                             type="button"
-                                            id="searchBtn"
                                             onClick={handleSubmit}
+                                            ref={this.searchBtn}
                                         >
                                             <i className="fas fa-search"></i> <span
                                             className="d-none d-sm-inline-block">Search</span>
@@ -69,9 +83,9 @@ class Form extends React.Component {
 
                                 <div className="mediaType mb-3">
                                     {
-                                        mediaTypesCheckboxes.map(item => (
+                                        mediaTypesCheckboxes.map((item, index) => (
                                             <Checkbox
-                                                key={item.key}
+                                                key={`searchMediatype-${index}`}
                                                 handleChangeMediaType={handleChangeMediaType}
                                                 label={item.label}
                                                 name={item.name}

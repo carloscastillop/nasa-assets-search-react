@@ -5,11 +5,14 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import axios from 'axios';
+
 import ErrorBoundary from '../../ErrorBoundary';
 import Header from '../Header/Header';
 import Results from '../Results/Results';
 import Footer from '../Footer/Footer';
+import Search from '../../Services/Search';
+import Nextpage from '../../Services/Nextpage';
+
 import './App.scss';
 
 
@@ -24,22 +27,26 @@ class App extends React.Component {
             mediaTypeFilters: [],
             formErrors: false,
             isLoading: false,
+            isLoadingNext: false,
             showResults: false,
+            nextPage: null,
             assets: [],
         }
         this.handleChangeSearch = this.handleChangeSearch.bind(this);
         this.handleChangeMediaType = this.handleChangeMediaType.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleNextPage = this.handleNextPage.bind(this);
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
+
     }
 
-    handleChangeSearch(event) {
+    handleChangeSearch = (event) => {
         this.setState({search: event.target.value, formErrors: false});
     }
 
-    handleChangeMediaType(event) {
+    handleChangeMediaType = (event) => {
         const checkbox = event.target;
         const mediaTypes = this.state.mediaTypes;
         let uniqueMediaTypes = [];
@@ -53,25 +60,67 @@ class App extends React.Component {
         this.setState({mediaTypes: uniqueMediaTypes});
     }
 
-    handleSubmit(event) {
-        const {search, mediaTypes, mediaTypeFilters} = this.state;
+    handleSubmit = (event) => {
+        const {search, mediaTypes} = this.state;
         const showResults = false;
         event.preventDefault();
         if (search === '') {
             const formErrors = true;
-            return this.setState({formErrors, showResults});
+            return this.setState({
+                formErrors,
+                showResults
+            });
         }
         this.setState({isLoading: true});
-
-        axios.get(`https://images-api.nasa.gov/search?q=${search}&media_type=${mediaTypes.toString()}`)
+        Search(search, mediaTypes.toString())
             .then(res => {
-                const assets = res.data.collection.items;
+                const assets = res.collection.items;
+                const nextPage = this.getNextPage(res.collection.links);
                 const isLoading = false;
                 const showResults = true;
                 const searchTitle = search;
                 const mediaTypeFilters = mediaTypes;
-                this.setState({assets, isLoading, showResults, searchTitle, mediaTypeFilters});
+                this.setState({
+                    assets,
+                    isLoading,
+                    showResults,
+                    searchTitle,
+                    mediaTypeFilters,
+                    nextPage
+                });
             });
+    }
+
+    getNextPage = (Links) => {
+        let nextPage = null;
+        if(!Links) return;
+        Links.forEach(link => {
+            if (link.rel === 'next') {
+                nextPage = link.href;
+            }
+        });
+        return nextPage;
+    }
+
+    handleNextPage = () => {
+        const {nextPage, assets} = this.state;
+        this.setState({isLoadingNext: true});
+        Nextpage(nextPage)
+            .then(res => {
+                const nextAssets = res.collection.items;
+                const nextPage = this.getNextPage(res.collection.links);
+                const isLoadingNext = false;
+                const newAssets = [
+                    ...assets,
+                    ...nextAssets
+                ];
+                this.setState({
+                    assets: newAssets,
+                    isLoadingNext: isLoadingNext,
+                    nextPage: nextPage
+                });
+            });
+
     }
 
     render() {
@@ -83,8 +132,11 @@ class App extends React.Component {
             assets,
             showResults,
             searchTitle,
-            mediaTypeFilters
+            mediaTypeFilters,
+            nextPage,
+            isLoadingNext
         } = this.state;
+
         return (
             <ErrorBoundary>
                 <div className="App">
@@ -101,26 +153,31 @@ class App extends React.Component {
                                     isLoading={isLoading}
                                     showResults={showResults}
                                 />
-                                <section className="container">
+                                <section className="shadowTop">
                                     {
                                         isLoading &&
-                                        <div className="text-center p-5">
+                                        <div className="text-center p-5 animated fadeIn h-100">
                                             <i className="fas fa-rocket fa-spin fa-3x"></i>
                                         </div>
                                     }
 
                                     {
                                         (showResults && !isLoading) &&
-                                        <Results
-                                            assets={assets}
-                                            search={searchTitle}
-                                            mediaTypeFilters={mediaTypeFilters}
-                                        />
+                                        <div className="container">
+                                            <Results
+                                                assets={assets}
+                                                search={searchTitle}
+                                                mediaTypeFilters={mediaTypeFilters}
+                                                nextPage={nextPage}
+                                                handleNextPage={this.handleNextPage}
+                                                isLoadingNext={isLoadingNext}
+                                            />
+                                        </div>
                                     }
 
                                 </section>
                             </Route>
-                            <Route path="/asset">
+                            <Route path="/asset/:id">
                                 <div className="container">
                                     <h1 className="text-white">ASSET</h1>
                                     <Link to="/">Home</Link>

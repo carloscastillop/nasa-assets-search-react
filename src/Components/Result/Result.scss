@@ -1,0 +1,97 @@
+@import '../../Styles/variables.scss';
+
+.previewContainer {
+  position: relative;
+
+  .assetIcon {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    width: 42px;
+    text-align: center;
+    height: 32px;
+    border-radius: 5px;
+    font-size: 25px;
+    line-height: 33px;
+    color: white;
+  }
+}
+
+
+.card {
+  &.noBorder {
+    border: none;
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: #{$grid-breakpoints-xl - 1}) {
+      height: 210px;
+    }
+    @media (max-width: #{$grid-breakpoints-lg - 1}) {
+      height: 250px;
+    }
+    @media (max-width: #{$grid-breakpoints-md - 1}) {
+      height: 200px;
+    }
+    @media (max-width: #{$grid-breakpoints-sm - 1}) {
+
+    }
+  }
+
+  .card-text {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.multi-line-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.line-2 {
+    white-space: unset;
+    text-overflow: unset;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  &.line-3 {
+    white-space: unset;
+    text-overflow: unset;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+.btn {
+  &.btn-outline-light {
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+  }
+
+  &.btn-outline-info {
+    color: #fff;
+    border: solid 2px $nasaColourLight;
+
+    &:hover {
+      color: #fff;
+      background-color: $nasaColourLight;
+      border-color: $nasaColourLight;
+    }
+  }
+}

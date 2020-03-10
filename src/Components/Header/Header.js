@@ -22,7 +22,6 @@ class Header extends React.Component {
                 <header className={(isLoading || showResults) ? 'spaceEffect pb-3' : 'fullHeight spaceEffect'}>
                     <div className='stars'></div>
                     <div className='twinkling'></div>
-                    <div className='clouds'></div>
                     <Navbar/>
                     <Form
                         search={search}

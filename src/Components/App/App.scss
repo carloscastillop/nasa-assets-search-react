@@ -17,7 +17,6 @@
 @import "../../../node_modules/bootstrap/scss/utilities";
 
 
-
 .App {
   height: 100%;
 }
@@ -32,3 +31,8 @@ button.bg-dark:focus {
   background-color: #1d2124 !important;
 }
 
+.shadowTop {
+  -webkit-box-shadow: inset 0px 7px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0px 7px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0px 7px 5px -2px rgba(0, 0, 0, 0.75);
+}

@@ -24,8 +24,11 @@ $footerLogoWidth: 30px;
 
 $font-family-base: 'Titillium Web', sans-serif;
 
+$nasaColour: #0B3C91;
+$nasaColourLight: #3c63a7;
+
 $theme-colors: (
-        "primary": #0B3C91,
+        "primary": $nasaColour,
         "danger": #FC3D21
 );
 
