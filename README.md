@@ -19,6 +19,10 @@ It should allow users to search for assets and then select and view an asset.
 - Add to my favourites, sabe list of assets Ids as favourites, using Local storage
 - Add Gallery image for type image
 
+### Tests
+- Full unit tests
+- E2E test (testcafe)
+
 
 -------------
 
