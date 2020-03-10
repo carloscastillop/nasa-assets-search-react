@@ -24,7 +24,7 @@ class App extends React.Component {
         this.state = {
             search: '',
             searchTitle: '',
-            mediaTypes: ['image', 'video'],
+            mediaTypes: ['image', 'video', 'audio'],
             mediaTypeFilters: [],
             formErrors: false,
             isLoading: false,

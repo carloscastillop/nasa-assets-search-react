@@ -5,6 +5,7 @@ import getAssetDetail from "../../Services/AssetDetail";
 import Navbar from "../Navbar/Navbar";
 import './Asset.scss'
 import Video from '../Video/Video';
+import Image from '../Image/Image';
 
 class Asset extends React.Component {
     constructor(props) {
@@ -33,28 +34,28 @@ class Asset extends React.Component {
     }
 
     assetDetail = (id) => {
+        let video_preview, media_type = null;
         getAssetAlbum(id)
             .then(info => {
-                console.log({getAssetAlbum: info});
+                media_type = info.data[0].media_type;
+                video_preview = (info.links) ? info.links[0].href : null;
                 this.setState({
                     isLoading: false,
                     title: info.data[0].title,
                     description: info.data[0].description,
                     keywords: info.data[0].keywords,
                     date_created: info.data[0].date_created,
-                    media_type: info.data[0].media_type,
-                    video_preview: info.links[0].href,
+                    media_type: media_type,
+                    video_preview: video_preview,
                 });
 
-                getAssetDetail(id)
+                getAssetDetail(id, media_type)
                     .then(res => {
                         this.setState({
                             asset: res,
                         });
                     });
             });
-
-
     }
 
 
@@ -110,18 +111,13 @@ class Asset extends React.Component {
                                 {
                                     (media_type === 'image') &&
                                     <div className="py-4">
-                                        <img
-                                            className="img-fluid animated fadeIn"
-                                            src={asset}
-                                            title={title}
-                                            alt={title}
-                                        />
+                                        <Image asset={asset} title={title}/>
                                     </div>
                                 }
                                 {
                                     (media_type === 'audio') &&
                                     <div className="text-center animated fadeInUp text-white">
-                                        <i className="fas fa-volume-up fa-3x" title="Audio type"></i>
+                                        <i className="fas fa-volume-up fa-3x animated pulse infinite" title="Audio type"></i>
                                     </div>
                                 }
                             </div>
@@ -131,7 +127,9 @@ class Asset extends React.Component {
                             {
                                 (media_type === 'audio') ? (
                                     <div className="card bg-light mb-3">
-                                        <div className="card-body">
+                                        <div className="card-body py-5">
+                                            <h2 className="h5">{title}</h2>
+                                            <hr/>
                                             <cite title={title}>
                                                 {description}
                                             </cite>

@@ -9,12 +9,12 @@ class Results extends React.Component {
         return (
             <React.Fragment>
                 <div className="results py-3">
-                    <h3 className="h4 text-white">
+                    <h3 className="h4 text-white resultsTitle mb-4 ">
                         Results for <strong>{search}</strong>
                     </h3>
                     {
                         (mediaTypeFilters && mediaTypeFilters.length > 1) &&
-                        <div>
+                        <div className="d-none">
                             Filters:
                             {
                                 mediaTypeFilters.map((name, index) => {

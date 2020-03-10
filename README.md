@@ -17,6 +17,7 @@ It should allow users to search for assets and then select and view an asset.
 - Link keywords to make related search in the Asset page
 - Add social Share links
 - Add to my favourites, sabe list of assets Ids as favourites, using Local storage
+- Add Gallery image for type image
 
 
 -------------
