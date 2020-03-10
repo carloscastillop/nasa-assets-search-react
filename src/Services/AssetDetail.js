@@ -1,18 +1,11 @@
 import Company from '../Api/Company';
 
-
-const parseMediaType = (mediaType) => {
-    let typeUrl = 'asset';
-    if(mediaType === 'video')
-        typeUrl = 'caption';
-
-    return typeUrl
-
+const parseAsset = (data, mediaType) => {
+    console.log({data:data, mediaType:mediaType})
 }
 
-const AssetDetail = (id, mediaType) => {
-    const mediaTypeUrl = parseMediaType(mediaType);
-    const apiUrl = `https://images-api.nasa.gov/asset/${mediaTypeUrl}/${id}`;
+const getAssetDetail = (id, mediaType ) => {
+    const apiUrl = 'https://images-api.nasa.gov/asset/' + id;
 
     return Company(apiUrl, true)
         .get(apiUrl,
@@ -21,8 +14,8 @@ const AssetDetail = (id, mediaType) => {
             }
         )
         .then(response => {
-            return response.data;
+            parseAsset(response.data, mediaType);
         });
 };
 
-export default AssetDetail;
+export default getAssetDetail;

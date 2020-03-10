@@ -12,7 +12,6 @@ import Results from '../Results/Results';
 import Footer from '../Footer/Footer';
 import Search from '../../Services/Search';
 import Nextpage from '../../Services/Nextpage';
-import AssetDetail from '../../Services/AssetDetail';
 import Asset from "../Asset/Asset";
 
 import './App.scss';
@@ -38,10 +37,6 @@ class App extends React.Component {
         this.handleChangeMediaType = this.handleChangeMediaType.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleNextPage = this.handleNextPage.bind(this);
-    }
-
-    componentDidMount = () => {
-
     }
 
     handleChangeSearch = (event) => {
@@ -125,13 +120,6 @@ class App extends React.Component {
 
     }
 
-    assetDetail = (id) => {
-        AssetDetail(id)
-            .then(res => {
-                console.log({assetx:res});
-            });
-
-    }
 
     render() {
         const {
@@ -187,17 +175,23 @@ class App extends React.Component {
 
                                 </section>
                             </Route>
-                            <Route exact path="/asset/:type/:id"
+                            <Route exact path="/asset/:mediaType/:id"
                                    render={(props) => {
                                        return (
-                                           <div className="container">
+                                           <React.Fragment>
                                                <Asset
                                                    id={props.match.params.id}
-                                                   mediaType={props.match.params.type}
-                                                   assetDetail={this.assetDetail}
+                                                   mediaType={props.match.params.mediaType}
                                                />
-                                               <Link to="/">Back</Link>
-                                           </div>
+                                               <div className="container py-3">
+                                                   <Link
+                                                       className="btn btn-primary"
+                                                       to="/"
+                                                   >
+                                                       <i className="fas fa-chevron-left"></i> Back
+                                                   </Link>
+                                               </div>
+                                           </React.Fragment>
                                        )
                                    }}/>
                         </Switch>

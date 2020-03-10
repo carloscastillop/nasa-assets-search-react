@@ -1,3 +1,26 @@
+## About the app
+
+### Brief
+
+In this exercise you will develop a web application that integrates with the [NASA Image and Video Library API](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf).
+It should allow users to search for assets and then select and view an asset.
+
+-------------
+## Next Steps
+
+### Show last searches (Home)
+- Show a lisf of assests visited in the browser. Using Local storage load las 10 visited assets
+- Add history push with the current search, using this, is possible to share the search
+- For video files, on mouse hover loads a video preview 
+
+### Asset detail page (asset/:id)
+- Link keywords to make related search in the Asset page
+- Add social Share links
+- Add to my favourites, sabe list of assets Ids as favourites, using Local storage
+
+
+-------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -37,10 +60,4 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## About the app
-
-### Brief
-
-In this exercise you will develop a web application that integrates with the [NASA Image and Video Library API](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf).
-It should allow users to search for assets and then select and view an asset.
 
