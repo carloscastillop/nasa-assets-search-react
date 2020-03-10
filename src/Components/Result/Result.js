@@ -7,7 +7,7 @@ class Result extends React.Component {
 
     render() {
         const {asset, mediaTypeFilters} = this.props;
-        const data = asset.data[0] ? asset.data[0] : [];
+        const data = (asset && asset.data) ? asset.data[0] : [];
         let links = audioImage;
         if (data.media_type === 'image' || data.media_type === 'video') {
             links = asset.links[0].href;
@@ -15,7 +15,7 @@ class Result extends React.Component {
         return (
             <React.Fragment>
                 {
-                    mediaTypeFilters.includes(data.media_type) &&
+                    (mediaTypeFilters && mediaTypeFilters.includes(data.media_type)) &&
                     <div className="col-6 col-md-6 col-lg-4 col-xl-3 mb-4">
                         <div id={'card-' + data.nasa_id}
                              className="card text-white bg-dark h-100 animated fadeIn noBorder">

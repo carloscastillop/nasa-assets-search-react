@@ -91,7 +91,7 @@ class Form extends React.Component {
                                                 name={item.name}
                                                 value={item.value}
                                                 id={item.key}
-                                                isChecked={mediaTypes.includes(item.value)}
+                                                isChecked={(mediaTypes) ? mediaTypes.includes(item.value) : false}
                                             />
                                         ))
                                     }

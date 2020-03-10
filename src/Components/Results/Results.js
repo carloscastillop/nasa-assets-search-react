@@ -25,7 +25,7 @@ class Results extends React.Component {
                     }
 
                     <div className="row">
-                        {
+                        { assets &&
                             assets.map((asset, index) => (
                                 <Result key={`asset-${index}`} asset={asset} mediaTypeFilters={mediaTypeFilters}/>
                             ))
