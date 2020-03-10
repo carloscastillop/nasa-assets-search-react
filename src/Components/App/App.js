@@ -12,6 +12,8 @@ import Results from '../Results/Results';
 import Footer from '../Footer/Footer';
 import Search from '../../Services/Search';
 import Nextpage from '../../Services/Nextpage';
+import AssetDetail from '../../Services/AssetDetail';
+import Asset from "../Asset/Asset";
 
 import './App.scss';
 
@@ -93,7 +95,7 @@ class App extends React.Component {
 
     getNextPage = (Links) => {
         let nextPage = null;
-        if(!Links) return;
+        if (!Links) return;
         Links.forEach(link => {
             if (link.rel === 'next') {
                 nextPage = link.href;
@@ -119,6 +121,14 @@ class App extends React.Component {
                     isLoadingNext: isLoadingNext,
                     nextPage: nextPage
                 });
+            });
+
+    }
+
+    assetDetail = (id) => {
+        AssetDetail(id)
+            .then(res => {
+                console.log({assetx:res});
             });
 
     }
@@ -177,12 +187,19 @@ class App extends React.Component {
 
                                 </section>
                             </Route>
-                            <Route path="/asset/:id">
-                                <div className="container">
-                                    <h1 className="text-white">ASSET</h1>
-                                    <Link to="/">Home</Link>
-                                </div>
-                            </Route>
+                            <Route exact path="/asset/:type/:id"
+                                   render={(props) => {
+                                       return (
+                                           <div className="container">
+                                               <Asset
+                                                   id={props.match.params.id}
+                                                   mediaType={props.match.params.type}
+                                                   assetDetail={this.assetDetail}
+                                               />
+                                               <Link to="/">Back</Link>
+                                           </div>
+                                       )
+                                   }}/>
                         </Switch>
                         <Footer/>
                     </Router>
