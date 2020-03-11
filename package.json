@@ -24,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "git push --set-upstream git@gitlab.com:carloscastillop/$(git rev-parse --show-toplevel | xargs basename).git\n $(git rev-parse --abbrev-ref HEAD)\n"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -5,6 +5,10 @@
 In this exercise you will develop a web application that integrates with the [NASA Image and Video Library API](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf).
 It should allow users to search for assets and then select and view an asset.
 
+#### Example
+Please visit the demo app ;-)
+[carloscastillop.gitlab.io/nasa-assets-search-react/](https://carloscastillop.gitlab.io/nasa-assets-search-react/)
+
 -------------
 ## Next Steps
 

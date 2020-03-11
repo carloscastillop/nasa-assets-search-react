@@ -138,7 +138,7 @@ class App extends React.Component {
         return (
             <ErrorBoundary>
                 <div className="App">
-                    <Router>
+                    <Router basename="/nasa-assets-search-react">
                         <Switch>
                             <Route exact path="/">
                                 <Header
