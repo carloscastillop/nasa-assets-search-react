@@ -5,13 +5,21 @@ const parseAsset = (data, media_type) => {
     console.log({parseAsset: data, media_type: media_type})
     if (media_type === 'image') {
         if(data){
-            data.map(row => {
+            for (const row of data) {
                 if(row.href.split('.').pop() === 'jpg'){
-                    return src = row.href;
+                    src = row.href;
                 }
-            })
+            }
         }
 
+    }else if (media_type === 'video') {
+        if(data){
+            for (const row of data) {
+                if(row.href.split('.').pop() === 'mp4'){
+                    src = row.href;
+                }
+            }
+        }
     } else {
         src = data[0].href;
     }
