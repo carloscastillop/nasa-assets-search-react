@@ -27,8 +27,8 @@ within this, is possible to share the search triggering the seach on load
 - Add image gallery icon for multiple images and react gallery image as well
 
 #### Tests
-- Full unit tests
-- E2E test (testcafe)
+- Full unit tests; Implemet full unit test and complex tests
+- E2E test (testcafe); Implement full E2E for all situations
 
 
 -------------
