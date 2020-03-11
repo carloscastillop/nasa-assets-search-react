@@ -46,10 +46,10 @@ class Form extends React.Component {
                 <div className="searchForm">
                     <div className="text-center text-white">
                         <div className="col-sm-9 col-md-8 p-lg-6 mx-auto">
-                            <h2 className="display-4 font-weight-normal text-uppercase animated fadeIn">
+                            <h2 className="sr-only display-4 font-weight-normal text-uppercase animated fadeIn">
                                 Nasa
                             </h2>
-                            <h1 className="h4 animated fadeIn mb-4">
+                            <h1 className="h1 text-uppercase animated fadeIn mt-4 mb-5">
                                 Space search
                             </h1>
                             <form className="animated fadeIn">
@@ -59,7 +59,7 @@ class Form extends React.Component {
                                         id="searchInput"
                                         type="text"
                                         className={formErrors ? 'form-control is-invalid' : 'form-control'}
-                                        placeholder="Explore the deep space"
+                                        placeholder="Explore outer space"
                                         value={search}
                                         onChange={handleChangeSearch}
                                         onKeyPress={this.enterPressed}
