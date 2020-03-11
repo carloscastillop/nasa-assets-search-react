@@ -2,6 +2,8 @@
   "name": "nasa-assets-search-react",
   "version": "0.1.0",
   "description": "Web application that integrates with the NASA Image and Video Library API.",
+  "author": "Carlos Castillo Pardo",
+  "license": "ISC",
   "private": true,
   "homepage": "https://carloscastillop.gitlab.io/nasa-assets-search-react",
   "dependencies": {
@@ -42,6 +44,8 @@
       "last 1 safari version"
     ]
   },
-  "author": "Carlos Castillo Pardo",
-  "license": "ISC"
+  "devDependencies": {
+    "testcafe": "^1.4.0",
+    "testcafe-reporter-xunit": "^2.1.0"
+  }
 }

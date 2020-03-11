@@ -23,6 +23,7 @@ class Result extends React.Component {
                                 <Link
                                     title={data.title}
                                     to={"/asset/" + data.nasa_id}
+                                    data-test-type={data.media_type}
                                 >
                                     <img
                                         src={links}
