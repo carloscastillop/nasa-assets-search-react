@@ -5,10 +5,6 @@ image: node:alpine
 # https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#advanced-configuration
 variables:
   PUBLIC_URL: /nasa-assets-search-react
-# Cache node modules - speeds up future builds
-cache:
-  paths:
-    - node_modules/
 
 # Name the stages involved in the pipeline
 stages:
