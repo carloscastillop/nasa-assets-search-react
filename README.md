@@ -8,18 +8,21 @@ It should allow users to search for assets and then select and view an asset.
 -------------
 ## Next Steps
 
-### Show last searches (Home)
-- Show a lisf of assests visited in the browser. Using Local storage load las 10 visited assets
-- Add history push with the current search, using this, is possible to share the search
+#### Homepage (/)
+- Show a lisf of assests visited in the browser. Using Local storage show last 10 visited assets.
+- Add history push with the current search (ex: /?q=apollo), 
+within this, is possible to share the search triggering the seach on load
 - For video files, on mouse hover loads a video preview 
+- Lazyload for images and thumbs
+- Handle if assest fail on load. Sometimes assets come with status 403 from api.
 
-### Asset detail page (asset/:id)
+#### Asset detail page (asset/:id)
 - Link keywords to make related search in the Asset page
 - Add social Share links
-- Add to my favourites, sabe list of assets Ids as favourites, using Local storage
-- Add Gallery image for type image
+- Add to my favourites, save list of assets Ids using Local storage.
+- Add image gallery icon for multiple images and react gallery image as well
 
-### Tests
+#### Tests
 - Full unit tests
 - E2E test (testcafe)
 
@@ -44,6 +47,10 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `testcafe chrome test/e2e.js`
+Launches the E2E test runner usng Testcafe. 
+[Visit documentation](https://devexpress.github.io/testcafe/documentation/getting-started/) for more information.
 
 ### `npm run build`
 
