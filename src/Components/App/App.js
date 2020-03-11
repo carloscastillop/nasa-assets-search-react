@@ -154,7 +154,7 @@ class App extends React.Component {
                                 <section className="shadowTop">
                                     {
                                         isLoading &&
-                                        <div className="text-center p-5 animated fadeIn h-100">
+                                        <div className="text-center p-5 animated fadeIn h-100 text-white">
                                             <i className="fas fa-rocket fa-spin fa-3x"></i>
                                         </div>
                                     }
@@ -170,6 +170,15 @@ class App extends React.Component {
                                                 handleNextPage={this.handleNextPage}
                                                 isLoadingNext={isLoadingNext}
                                             />
+                                        </div>
+                                    }
+
+                                    {
+                                        (!isLoading && assets && assets.length === 0) &&
+                                        <div className="text-center p-3 animated fadeInUp">
+                                            <h3 className="text-white">
+                                                <i className="fas fa-user-astronaut fa-3x"></i> Sorry, no results.
+                                            </h3>
                                         </div>
                                     }
 

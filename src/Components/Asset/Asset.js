@@ -126,13 +126,15 @@ class Asset extends React.Component {
 
                             {
                                 (media_type === 'audio') ? (
-                                    <div className="card bg-light mb-3">
+                                    <div className="card bg-light mb-3 animated fadeIn">
                                         <div className="card-body py-5">
                                             <h2 className="h5">{title}</h2>
                                             <hr/>
-                                            <cite title={title}>
-                                                {description}
-                                            </cite>
+                                            <div className="citeContainer">
+                                                <cite title={title}>
+                                                    {description}
+                                                </cite>
+                                            </div>
                                         </div>
                                     </div>
                                 ) : (

@@ -8,18 +8,24 @@
 @import "../../../node_modules/bootstrap/scss/utilities";
 
 .textHeader {
-  position: relative;
-  z-index: 100;
+    position: relative;
+    z-index: 100;
 }
 
 .mediaContainer {
-  background-color: black;
+    background-color: black;
 }
 
-cite {
-  background-color: #fff;
-  border-radius: 5px;
-  color: #212529;
-  text-align: left;
-  line-height: 1.8em;
+.card {
+    .citeContainer {
+        max-height: 900px;
+        overflow-y: auto;
+    }
+    cite {
+        background-color: #fff;
+        border-radius: 5px;
+        color: #212529;
+        text-align: left;
+        line-height: 1.8em;
+    }
 }
