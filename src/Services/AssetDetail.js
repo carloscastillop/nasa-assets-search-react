@@ -4,11 +4,14 @@ const parseAsset = (data, media_type) => {
     let src = '';
     console.log({parseAsset: data, media_type: media_type})
     if (media_type === 'image') {
-        data.map(row => {
-            if(row.href.split('.').pop() === 'jpg'){
-               return src = row.href;
-            }
-        })
+        if(data){
+            data.map(row => {
+                if(row.href.split('.').pop() === 'jpg'){
+                    return src = row.href;
+                }
+            })
+        }
+
     } else {
         src = data[0].href;
     }
