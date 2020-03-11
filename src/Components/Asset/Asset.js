@@ -38,7 +38,7 @@ class Asset extends React.Component {
         getAssetAlbum(id)
             .then(info => {
                 media_type = info.data[0].media_type;
-                video_preview = (info.links) ? info.links[0].href : null;
+                video_preview = (info && info.links) ? info.links[0].href : null;
                 this.setState({
                     isLoading: false,
                     title: info.data[0].title,
@@ -105,6 +105,7 @@ class Asset extends React.Component {
                                         <Video
                                             video_preview={video_preview}
                                             video_src={asset}
+                                            title={title}
                                         />
                                     </div>
                                 }

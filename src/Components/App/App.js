@@ -174,7 +174,7 @@ class App extends React.Component {
                                     }
 
                                     {
-                                        (!isLoading && assets && assets.length === 0) &&
+                                        (!isLoading && showResults && assets && assets.length === 0) &&
                                         <div className="text-center p-3 animated fadeInUp">
                                             <h3 className="text-white">
                                                 <i className="fas fa-user-astronaut fa-3x"></i> Sorry, no results.

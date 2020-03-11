@@ -4,15 +4,17 @@ import './Video.scss';
 
 class myVideo extends React.Component {
     render() {
-        const {video_preview, video_src} = this.props;
+        const {video_preview, video_src, title} = this.props;
         return (
-            <Player
-                playsInline
-                poster={video_preview}
-                src={video_src}
-            >
-                <BigPlayButton position="center" />
-            </Player>
+            <React.Fragment>
+                <Player
+                    playsInline
+                    poster={video_preview}
+                    src={video_src}
+                >
+                    <BigPlayButton position="center"/>
+                </Player>
+            </React.Fragment>
         );
     };
 }

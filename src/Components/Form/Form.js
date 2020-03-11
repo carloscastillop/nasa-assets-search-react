@@ -60,8 +60,6 @@ class Form extends React.Component {
                                         type="text"
                                         className={formErrors ? 'form-control is-invalid' : 'form-control'}
                                         placeholder="Explore the deep space"
-                                        aria-label="Explore the deep space"
-                                        aria-describedby="searchBtn"
                                         value={search}
                                         onChange={handleChangeSearch}
                                         onKeyPress={this.enterPressed}
