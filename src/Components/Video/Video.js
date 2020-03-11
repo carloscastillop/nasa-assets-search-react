@@ -4,7 +4,7 @@ import './Video.scss';
 
 class myVideo extends React.Component {
     render() {
-        const {video_preview, video_src, title} = this.props;
+        const {video_preview, video_src} = this.props;
         return (
             <React.Fragment>
                 <Player
